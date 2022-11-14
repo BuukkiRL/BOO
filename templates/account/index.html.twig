@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+<!-- Page Header Start -->
+    <div class="container-fluid pt-5">
+        <div class="container-fluid bg-secondary mb-5">
+            <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 200px">
+                <h1 class="font-weight-semi-bold text-uppercase mb-3">Votre Compte</h1>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+
+    <!-- Checkout Start -->
+    <body>
+    <div class="container-fluid pt-5">
+        <div class="row px-xl-5">
+            <div class="col-lg-8">
+                <div class="mb-4">
+                    <h4 class="font-weight-semi-bold mb-4">Modification compte</h4>
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="60">
+                        </div>
+                        <div class="col-md-6 form-group">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Prénom</label>
+                            <input class="form-control" type="text" placeholder="">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Nom</label>
+                            <input class="form-control" type="text" placeholder="">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>E-mail</label>
+                            <input class="form-control" type="text" placeholder="">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Numéro de Tel</label>
+                            <input class="form-control" type="text" placeholder="">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Adresse</label>
+                            <input class="form-control" type="text" placeholder="">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Suplément à l'adresse</label>
+                            <input class="form-control" type="text" placeholder="">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Pays</label>
+                            <select class="custom-select">
+                                <option selected>France</option>
+                                <option>Angleterre</option>
+                                <option>Espagne</option>
+                                <option>Belgique</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Ville</label>
+                            <input class="form-control" type="text" placeholder="">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Code postal</label>
+                            <input class="form-control" type="text" placeholder="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+                    <div class="col-lg-4">
+                        <button class="btn btn-lg btn-block btn-primary font-weight-bold my-3 py-3">Modifier</button>
+                    </div>       
+        </div>
+    </div>
+    </body>
+    <!-- Checkout End -->
+{% endblock %}
