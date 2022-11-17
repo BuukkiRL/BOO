@@ -20,6 +20,9 @@
             <div class="col-lg-8">
                 <div class="mb-4">
                     <h4 class="font-weight-semi-bold mb-4">Modification compte</h4>
+                    {% if is_granted('ROLE_ADMIN')%}
+                    <a href="/admin">Accéder à EasyAdmin</a>
+                    {% endif %}
                     <div class="row">
                         <div class="col-md-6 form-group">
                             <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="60">
