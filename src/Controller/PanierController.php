@@ -19,17 +19,19 @@ class PanierController extends AbstractController
         $dataPanier = [];
         $total = 0;
 
-        foreach($panier as $id => $quantite){
-            $product = $productRepository->find($id);
-            $dataPanier = [
-                "produit" => $product,
-                "quantite" => $quantite
+        foreach($panier as $slug => $quantite){
+            $product = $productRepository->findOneBySlug($slug);
+            $dataPanier[] = [
+                "product" => $product,
+                "quantite" => $quantite,
+                "prix" => $product->getPrix() * $quantite
             ];
             $total += $product->getPrix() * $quantite;
         }
 
         return $this->render('panier/index.html.twig', [
             'controller_name' => 'PanierController',
+            'dataPanier' => $dataPanier,
             compact("dataPanier", "total"),
         ]);
     }
@@ -47,7 +49,8 @@ class PanierController extends AbstractController
         }
 
         $session->set("panier", $panier);
+       
 
-        return $this->redirectToRoute('app_produit');
+        return $this->redirectToRoute('app_panier');
     }
 }
