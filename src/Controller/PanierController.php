@@ -27,11 +27,15 @@ class PanierController extends AbstractController
                 "prix" => $product->getPrix() * $quantite
             ];
             $total += $product->getPrix() * $quantite;
+            if($quantite=0){
+                unset($dataPanier[$product]);
+            }
         }
 
         return $this->render('panier/index.html.twig', [
             'controller_name' => 'PanierController',
             'dataPanier' => $dataPanier,
+            'total' => $total,
             compact("dataPanier", "total"),
         ]);
     }
@@ -46,6 +50,24 @@ class PanierController extends AbstractController
             $panier[$slug]++;
         }else{
             $panier[$slug] = 1;
+        }
+
+        $session->set("panier", $panier);
+       
+
+        return $this->redirectToRoute('app_panier');
+    }
+
+    #[Route('/delete/{slug}', name: 'delete_panier')]
+    public function delete(Product $product, SessionInterface $session){
+
+        $panier = $session->get("panier", []);
+        $slug = $product->getSlug();
+
+        if(empty($panier[$slug])){
+            return $this->redirectToRoute('app_panier');
+        }else{
+             $panier[$slug]--;
         }
 
         $session->set("panier", $panier);
